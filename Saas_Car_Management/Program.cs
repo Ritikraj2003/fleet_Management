@@ -124,11 +124,8 @@ var app = builder.Build();
 // 7. Configure HTTP Pipeline Order
 app.UseMiddleware<ExceptionMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FleetFlow API v1"));
-}
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FleetFlow API v1"));
 
 // app.UseHttpsRedirection(); // Commented out to allow HTTP requests from Expo/Android to succeed without SSL cert errors
 
